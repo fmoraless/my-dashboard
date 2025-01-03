@@ -1,4 +1,4 @@
-import { PokemonGrid, PokemonsResponse, SinglePokemon } from "@/app/pokemons";
+import { PokemonGrid, PokemonsResponse, SinglePokemon } from "@/pokemons";
 
 /* 
 TODO: contionuar desde Rutas dinámicas - Argumentos por URL

@@ -1,6 +1,7 @@
 import React from "react";
-import { SinglePokemon } from "../interfaces";
+
 import { PokemonCard } from "./PokemonCard";
+import { SinglePokemon } from "../interfaces/single-pokemon";
 
 interface Props {
   pokemons: SinglePokemon[];
