@@ -1,13 +1,24 @@
+import { Pokemon } from "@/pokemons";
+
 interface Props {
   params: { id: string };
 }
+const getPokemon = async (id: string): Promise<Pokemon> => {
+  const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
+    cache: "force-cache",
+  }).then((resp) => resp.json());
 
-////TODO: repasar rutas diunamicas, ya que hubo error.
-export default function PokemonPage({ params }: Props) {
-  console.log({ params });
+  console.log({ pokemon });
+  return pokemon;
+};
+
+export default async function PokemonPage({ params }: Props) {
+  const pokemon = await getPokemon(params.id);
+
   return (
     <div>
-      <h1>{params.id}</h1>
+      <h1>Pokemon {params.id}</h1>
+      <div>{JSON.stringify(pokemon)}</div>
     </div>
   );
 }
