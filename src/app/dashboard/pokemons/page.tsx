@@ -1,9 +1,9 @@
 import { PokemonGrid, PokemonsResponse, SinglePokemon } from "@/pokemons";
 
-/* 
-TODO: contionuar desde Rutas dinámicas - Argumentos por URL
-
-*/
+export const metadata = {
+  title: "151 Pokemons",
+  description: "Ad minim sit cupudatat culpa consecteur",
+};
 
 const getPokemons = async (
   limit = 20,
@@ -27,7 +27,7 @@ export default async function PokemonsPage() {
   return (
     <div className="flex flex-col">
       <span className="text-5xl my-2">
-        Listado Pokemons <span>Estatico</span>
+        Listado Pokemons <small className="text-blue-500">Estatico</small>
       </span>
       <PokemonGrid pokemons={pokemons} />
     </div>
