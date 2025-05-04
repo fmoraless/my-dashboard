@@ -12,13 +12,13 @@ interface Props {
 }
 export const PokemonCard = ({ pokemon }: Props) => {
   const { id, name } = pokemon;
-  const isFavorite = useAppSelector(state => !!state.pokemons[id]);
+  const isFavorite = useAppSelector((state) => !!state.pokemons.favorites[id]);
   const dispatch = useAppDispatch();
 
   const onToggle = () => {
     dispatch(toggleFavorite(pokemon));
-  }
-  
+  };
+
   return (
     <div className="mx-auto right-0 mt-2 w-60">
       <div className="bg-white rounded overflow-hidden shadow-lg">
@@ -51,7 +51,6 @@ export const PokemonCard = ({ pokemon }: Props) => {
           >
             <div className="text-red-600">
               {isFavorite ? <IoHeart /> : <IoHeartOutline />}
-              
             </div>
             <div className="pl-3">
               <p className="text-sm font-medium text-gray-800 leading-none">
