@@ -7,11 +7,18 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
     '2': { id: 2, name: 'ivysaur', type: 'grass' },
  */
 
+const getInitialState = (): PokemonsState => {
+  const favorites = JSON.parse(
+    localStorage.getItem("favorite-pokemons") ?? "{}"
+  );
+  return favorites;
+};
 interface PokemonsState {
   [key: string]: SinglePokemon;
 }
 
 const initialState: PokemonsState = {
+  ...getInitialState(),
   /*  "1": { id: "1", name: "bulbasaur" },
   "2": { id: "2", name: "ivysaur" },
   "3": { id: "3", name: "venusaur" },
@@ -27,10 +34,11 @@ const pokemonsSlice = createSlice({
       const { id } = pokemon;
       if (!!state[id]) {
         delete state[id];
-        return;
+        //return;
+      } else {
+        state[id] = pokemon;
       }
-
-      state[id] = pokemon;
+      localStorage.setItem("favorite-pokemons", JSON.stringify(state));
     },
   },
 });
