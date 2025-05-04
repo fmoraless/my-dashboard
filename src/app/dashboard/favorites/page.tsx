@@ -1,4 +1,5 @@
 import { FavoritePokemons } from "@/pokemons";
+import { IoHeartOutline } from "react-icons/io5";
 
 export const metadata = {
   title: "Favoritos",

@@ -12,8 +12,10 @@ interface PokemonsState {
 }
 
 const initialState: PokemonsState = {
-  "1": { id: "1", name: "bulbasaur" },
-  "3": { id: "3", name: "ivysaur" },
+  /*  "1": { id: "1", name: "bulbasaur" },
+  "2": { id: "2", name: "ivysaur" },
+  "3": { id: "3", name: "venusaur" },
+  "4": { id: "4", name: "charmander" }, */
 };
 
 const pokemonsSlice = createSlice({
@@ -22,17 +24,17 @@ const pokemonsSlice = createSlice({
   reducers: {
     toggleFavorite(state, action: PayloadAction<SinglePokemon>) {
       const pokemon = action.payload;
-      const {id} = pokemon;
+      const { id } = pokemon;
       if (!!state[id]) {
         delete state[id];
         return;
       }
 
       state[id] = pokemon;
+    },
   },
-}
 });
 
-export const {toggleFavorite} = pokemonsSlice.actions;
+export const { toggleFavorite } = pokemonsSlice.actions;
 
 export default pokemonsSlice.reducer;
